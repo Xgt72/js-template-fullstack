@@ -33,13 +33,10 @@ ENV ACCESS_JWT_COOKIE_SECURE=${ACCESS_JWT_COOKIE_SECURE}
 COPY ./ /usr/src/app
 RUN npm install -g pnpm
 # Create front app
-RUN cd ./frontend
-RUN pnpm i
-RUN pnpm build
+RUN cd ./frontend && pnpm i && pnpm build
 # Create back app
-RUN cd ../backend
-RUN pnpm i
+RUN cd ../backend && pnpm i
 
 # expose full app on APP_PORT
 EXPOSE ${APP_PORT}
-CMD ["node", "index.js"]
+CMD ["node", "backend/index.js"]
