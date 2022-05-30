@@ -35,7 +35,7 @@ RUN npm install -g pnpm
 # Create front app
 RUN cd ./frontend && pnpm i && pnpm build
 # Create back app
-RUN cd ../backend && pnpm i
+RUN cd ./backend && pnpm i
 
 # expose full app on APP_PORT
 EXPOSE ${APP_PORT}
